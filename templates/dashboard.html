@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard • Eco Route</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Eco Route</div>
+    <div class="actions">
+      <span id="userName"></span>
+      <button id="logoutBtn" class="btn small">Logout</button>
+    </div>
+  </header>
+  <main class="dashboard">
+    <section class="controls">
+      <form id="routeForm">
+        <input id="fromInput" placeholder="From (Mysore only)" required>
+        <input id="toInput" placeholder="To (Mysore only)" required>
+        <select id="modeSelect">
+          <option value="car">Car</option>
+          <option value="scooter">Scooter/Bike</option>
+        </select>
+        <button type="submit" class="btn">Find Route</button>
+      </form>
+      <div class="metrics">
+        <div class="metric"><div class="label">Eco Score</div><div id="ecoScore" class="value">–</div></div>
+        <div class="metric"><div class="label">AQI</div><div id="aqi" class="value">–</div></div>
+        <div class="metric"><div class="label">CO₂ (kg)</div><div id="co2" class="value">–</div></div>
+        <div class="metric"><div class="label">CO₂ Rate</div><div id="co2Rate" class="value">–</div></div>
+      </div>
+      <div class="weather">
+        <div class="metric"><div class="label">Temp</div><div id="wxTemp" class="value">–</div></div>
+        <div class="metric"><div class="label">Humidity</div><div id="wxHumidity" class="value">–</div></div>
+      </div>
+      <div id="directions" class="directions hidden">
+        <div class="dir-tabs">
+          <button id="tabPolluted" class="btn small">Red: Polluted</button>
+          <button id="tabEco" class="btn small">Green: Eco</button>
+        </div>
+        <div id="dirList" class="dir-list"></div>
+        <div style="padding:.5rem">
+          <button id="startNav" class="btn small">Start Navigation</button>
+          <button id="stopNav" class="btn small">Stop</button>
+        </div>
+      </div>
+      <div class="layer-toggle">
+        <button id="Look For Normal View" class="btn small">Normal Map</button>
+        <button id="ECO VIEW" class="btn small">Greenery Map</button>
+      </div>
+    </section>
+    <section class="map-wrap hidden">
+      <div id="map"></div>
+      <div id="mapSplit" class="map-split hidden">
+        <div id="mapNormal"></div>
+        <div id="mapGreen"></div>
+      </div>
+      <div id="legend">
+        <div><span class="swatch red"></span> Polluted route (high AQI, high CO₂)</div>
+        <div><span class="swatch green"></span> Eco-friendly route</div>
+      </div>
+    </section>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

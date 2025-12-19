@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Envs
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# App data
+eco_route.db
+*.sqlite
+
+# Trae
+.trae/
+
+# Node-like
+node_modules/
+
